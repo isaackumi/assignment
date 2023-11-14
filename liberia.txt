@@ -1,0 +1,2 @@
+Country Name,Mobile Subscription per capita,Internet users per capita
+Liberia,0.5849996701129679,0.004887215289164311
