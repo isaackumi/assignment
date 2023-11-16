@@ -190,7 +190,7 @@ def compute_and_report():
 
 
 if __name__ == "__main__":
-    # get_country_info()
+    get_country_info()
     compute_and_report()
     # write_data_to_file("ghana")
     # print(tuple(load_data_into_various_list())[0][0])

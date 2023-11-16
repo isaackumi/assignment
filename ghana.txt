@@ -1,0 +1,2 @@
+Country Name,Mobile Subscription per capita,Internet users per capita
+Ghana,0.9945606253378548,0.05035307717476765

@@ -1,0 +1,2 @@
+Country Name,Mobile Subscription per capita,Internet users per capita
+Algeria,0.9710999100318135,0.12109120177092018
