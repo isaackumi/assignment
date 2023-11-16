@@ -17,4 +17,3 @@ with open('CountryData.csv','r') as f:
 
 def get_country_info(country):
     country  = input("Enter Country Name: ")
-    pass

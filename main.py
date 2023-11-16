@@ -108,7 +108,9 @@ def write_data_to_file(country):
 # PART 2 : Q4
 def compute_and_report():
     all = load_data_into_various_list()
+    # print(all[1])
     # print(type(a[1]))
+
     #cast all string values to integers
     casted_population = [int(population) for population in all[1]]
     casted_literacy = [int(literacy) for literacy in all[2]]
@@ -116,22 +118,74 @@ def compute_and_report():
     casted_internet = [int(internet) for internet in all[4]]
     casted_electricity_production = [int(electricity_production) for electricity_production in all[5]]
     casted_electricity_consumption = [int(electricity_consumption) for electricity_consumption in all[6]]
+    # print(f"casted elect: {casted_electricity_production}")
 
-
-
-    print(f"Total population: {sum(casted_population)}")
-
+    print()
+    print(f"Total population of Africa is: {sum(casted_population)}")
+    print()
     # get index
     index_of_least_populous_country = casted_population.index(min(casted_population))
     index_of_most_populous_country = casted_population.index(max(casted_population))
-
     print(f"{all[0][index_of_least_populous_country]} is the least populated country in Africa")
     print(f"{all[0][index_of_most_populous_country]} is the Most populated country in Africa")
-    print(f"Least populous: {min(casted_population)}")
-    print(f"Most populous: {max(casted_population)}")
+    print()
+    #The most populous and least populous African countries
+    # print(f"Least populous : {all[0][casted_population.index(min(casted_population))]}")
+    # print(f"Most populous: {all[0][casted_population.index(max(casted_population))]}")
+    # print()
+
+    # The countries with the highest and lowest literacy rates
+    index_of_least_literacy_country = casted_literacy.index(min(casted_literacy))
+    index_of_most_literacy_country = casted_literacy.index(max(casted_literacy))
+    print(f"{all[0][index_of_least_literacy_country]} is the country with the least literacy rate in Africa")
+    print(f"{all[0][index_of_most_literacy_country]} is the country with the highest literacy rate in Africa")
+    print()
+
+    # The “average” literacy rate in Africa, computed by weighting each country’s literacy
+    # rate by the country’s population, and dividing by the total population.
+    total_literacy_rate = sum(casted_literacy)/sum(casted_population)
+    print(f"The average literacy rate in Africa is: {total_literacy_rate}%")
+    print()
+
+    #The countries with the highest and lowest number of mobile subscriptions per capita
+    mobile_sub_per_capita = [ i/j for i,j in zip(casted_mobile,casted_population)] 
+    # print(len(x))
+    index_of_highest_mobile_sub = mobile_sub_per_capita.index(max(mobile_sub_per_capita))
+    index_of_lowest_mobile_sub = mobile_sub_per_capita.index(min(mobile_sub_per_capita))
+    print(f"{all[0][index_of_highest_mobile_sub]} is the country with the highest number of mobile subscriptions per capita")
+    print(f"{all[0][index_of_lowest_mobile_sub]} is the country with the lowest number of mobile subscriptions per capita")
+    print()
+
+    #The countries with the highest and lowest numbers of internet users per capita
+    internet_users_per_capita = [ i/j for i,j in zip(casted_internet,casted_population)] 
+    # print(len(x))
+    index_of_highest_internet_users = internet_users_per_capita.index(max(internet_users_per_capita))
+    index_of_lowest_internet_users = internet_users_per_capita.index(min(internet_users_per_capita))
+    print(f"{all[0][index_of_highest_internet_users]} is the country with the highest number of internet users per capita")
+    print(f"{all[0][index_of_lowest_internet_users]} is the country with the lowest number of internet users per capita")
+    print()
+
+    x = [ index for index, (i,j) in enumerate(zip(casted_electricity_production,casted_electricity_consumption)) if i>j]
+    print("LIST OF ELECTRICITY EXPORTERS:")
+    # print(x)
+
+    for index in x:
+        # print(index)
+        print(f"{all[0][index]}")
+
+
+
+    y = [ index for index, (i,j) in enumerate(zip(casted_electricity_production,casted_electricity_consumption)) if j>i]
+    print()
+    print("LIST OF ELECTRICITY IMPORTERS:")
+    for index in y:
+        # print(index)
+        print(f"{all[0][index]}")
+    
+
 
     
-    #
+    
 
 
 
